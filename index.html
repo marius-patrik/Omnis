@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Overview · Omnis</title>
+    <title>Overview · Omnix</title>
     <meta name="description" content="Universal developer workspace and local-first personal data OS - one engine, many profiles.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
 
         <a class="header__brand" href=".">
           <span class="header__mark" aria-hidden="true"></span>
-          <span class="header__name">Omnis</span>
+          <span class="header__name">Omnix</span>
         </a>
 
         <div class="header__search">
@@ -140,7 +140,7 @@
     </li>
     <li class="nav__item">
       <a class="nav__link"
-         href="architecture/decisions/0011-omnis-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnis is a kernel: bind existing services rather than reimplement them</a>
+         href="architecture/decisions/0011-omnix-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnix is a kernel: bind existing services rather than reimplement them</a>
     </li>
     <li class="nav__item">
       <a class="nav__link"
@@ -237,16 +237,16 @@
 
       <main class="content" id="content">
         <article class="prose">
-          <h1 id="omnis">Omnis<a class="headerlink" href="#omnis" title="Permanent link">&para;</a></h1>
+          <h1 id="omnix">Omnix<a class="headerlink" href="#omnix" title="Permanent link">&para;</a></h1>
 <p><strong>An AI operating system. Talk to your machine, and it does the thing.</strong></p>
 <p>"Install Rust, give me a Windows VM with Photoshop, put the daemon on my workstation and the
-interface here, and make it look like Zed" is a sentence, not an afternoon. Omnis takes it, writes
+interface here, and make it look like Zed" is a sentence, not an afternoon. Omnix takes it, writes
 the change into one declaration, shows you exactly what it will do, and applies it. If you don't like
 the result, you roll it back — one command, every time, whatever changed.</p>
 <p>It is very smart because it can see the whole machine: your repositories, terminals, packages,
 containers, guest operating systems, browser, and secrets are one system with one API, and the agent
 is a first-class operator of it rather than a chat box bolted onto an editor.</p>
-<p>Underneath, Omnis is a <strong>kernel</strong>. It owns nothing you could get elsewhere — <code>git</code>, <code>sl</code>, Nix,
+<p>Underneath, Omnix is a <strong>kernel</strong>. It owns nothing you could get elsewhere — <code>git</code>, <code>sl</code>, Nix,
 podman, libvirt, Chromium, Tailscale, and the coding-agent CLIs are all <strong>bound, not built</strong> — and
 everything that makes them compose: one bus, one scene tree, one declaration, one modification
 surface, one audit trail.</p>
@@ -260,7 +260,7 @@ decided in <a href="architecture/decisions/">decision records</a>, and sequenced
 Applying it produces a <strong>generation</strong> — a parent, a diff, an author — so rollback is one operation
 and an agent reconfiguring your machine leaves a reviewable change rather than a mutation.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="ss">omnis</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="ss">omnix</span> <span class="o">=</span> <span class="p">{</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    hosts<span class="o">.</span>core<span class="o">.</span><span class="ss">backend</span> <span class="o">=</span> <span class="s2">"docker"</span><span class="p">;</span>        <span class="c1"># native · docker · wsl · podman · nspawn · remote</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="ss">placement</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">daemon</span> <span class="o">=</span> <span class="s2">"core"</span><span class="p">;</span> <span class="ss">gui</span> <span class="o">=</span> <span class="s2">"workstation"</span><span class="p">;</span> <span class="p">};</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
@@ -280,7 +280,7 @@ and an agent reconfiguring your machine leaves a reviewable change rather than a
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>  <span class="p">};</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="p">}</span>
 </code></pre></div>
-<p>The full reference is <a href="declaration/"><code>examples/omnis.nix</code></a>.</p>
+<p>The full reference is <a href="declaration/"><code>examples/omnix.nix</code></a>.</p>
 <p>Removing something removes it <strong>completely</strong> — the processes, the packages, the files, and
 everything it contributed to the rest of the system. "Disabled" and "not installed" are not
 different states.</p>
@@ -305,7 +305,7 @@ change.</p>
 <tbody>
 <tr>
 <td><a href="architecture/">ARCHITECTURE.md</a></td>
-<td><strong>The only normative document.</strong> What Omnis is, why, and how it is built.</td>
+<td><strong>The only normative document.</strong> What Omnix is, why, and how it is built.</td>
 </tr>
 <tr>
 <td><a href="architecture/decisions/">Decision records</a></td>
@@ -367,7 +367,7 @@ already settled.</p>
         </nav>
 
         <footer class="footer">
-          <span>Omnis</span>
+          <span>Omnix</span>
         </footer>
       </main>
 

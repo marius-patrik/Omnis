@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The declaration · Omnis</title>
+    <title>The declaration · Omnix</title>
     <meta name="description" content="Universal developer workspace and local-first personal data OS - one engine, many profiles.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
 
         <a class="header__brand" href="..">
           <span class="header__mark" aria-hidden="true"></span>
-          <span class="header__name">Omnis</span>
+          <span class="header__name">Omnix</span>
         </a>
 
         <div class="header__search">
@@ -140,7 +140,7 @@
     </li>
     <li class="nav__item">
       <a class="nav__link"
-         href="../architecture/decisions/0011-omnis-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnis is a kernel: bind existing services rather than reimplement them</a>
+         href="../architecture/decisions/0011-omnix-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnix is a kernel: bind existing services rather than reimplement them</a>
     </li>
     <li class="nav__item">
       <a class="nav__link"
@@ -238,13 +238,13 @@
       <main class="content" id="content">
         <article class="prose">
           <h1 id="the-declaration">The declaration<a class="headerlink" href="#the-declaration" title="Permanent link">&para;</a></h1>
-<p>The reference declaration, rendered from <a href="https://github.com/marius-patrik/omnis/blob/main/examples/omnis.nix"><code>examples/omnis.nix</code></a> at build time — this page and the file cannot
+<p>The reference declaration, rendered from <a href="https://github.com/marius-patrik/omnis/blob/main/examples/omnix.nix"><code>examples/omnix.nix</code></a> at build time — this page and the file cannot
 disagree.</p>
 <p>See <a href="../architecture/">Architecture §4</a> for what a declaration is, how generations
 work, and why runtime changes are written back into it.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># The whole system, declared.</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">#</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># This is the reference declaration: every subsystem, environment, host, and surface Omnis manages,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># This is the reference declaration: every subsystem, environment, host, and surface Omnix manages,</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># in one file. Evaluating it produces a generation (ADR-0012); applying that generation converges the</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># running system toward it. Removing something here removes it entirely — the processes, the</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># packages, the files, and everything it contributed to the rest of the system (ADR-0013).</span>
@@ -254,7 +254,7 @@ work, and why runtime changes are written back into it.</p>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">{</span> config<span class="p">,</span> lib<span class="p">,</span> pkgs<span class="p">,</span> <span class="o">...</span> <span class="p">}:</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">{</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  <span class="ss">omnis</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  <span class="ss">omnix</span> <span class="o">=</span> <span class="p">{</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="c1"># ─────────────────────────────────────────────────────────────────────────</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="c1"># Hosts — where things are allowed to run (ADR-0016)</span>
@@ -325,7 +325,7 @@ work, and why runtime changes are written back into it.</p>
 <a id="__codelineno-0-81" name="__codelineno-0-81" href="#__codelineno-0-81"></a>      <span class="ss">cas</span> <span class="o">=</span> <span class="p">{</span>
 <a id="__codelineno-0-82" name="__codelineno-0-82" href="#__codelineno-0-82"></a>        <span class="ss">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
 <a id="__codelineno-0-83" name="__codelineno-0-83" href="#__codelineno-0-83"></a>        <span class="ss">chunking</span> <span class="o">=</span> <span class="s2">"fastcdc"</span><span class="p">;</span>
-<a id="__codelineno-0-84" name="__codelineno-0-84" href="#__codelineno-0-84"></a>        <span class="ss">store</span> <span class="o">=</span> <span class="s2">"/var/lib/omnis/cas"</span><span class="p">;</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84" href="#__codelineno-0-84"></a>        <span class="ss">store</span> <span class="o">=</span> <span class="s2">"/var/lib/omnix/cas"</span><span class="p">;</span>
 <a id="__codelineno-0-85" name="__codelineno-0-85" href="#__codelineno-0-85"></a>      <span class="p">};</span>
 <a id="__codelineno-0-86" name="__codelineno-0-86" href="#__codelineno-0-86"></a>
 <a id="__codelineno-0-87" name="__codelineno-0-87" href="#__codelineno-0-87"></a>      tasks<span class="o">.</span><span class="ss">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
@@ -356,7 +356,7 @@ work, and why runtime changes are written back into it.</p>
 <a id="__codelineno-0-112" name="__codelineno-0-112" href="#__codelineno-0-112"></a>      <span class="ss">windows</span> <span class="o">=</span> <span class="p">{</span>
 <a id="__codelineno-0-113" name="__codelineno-0-113" href="#__codelineno-0-113"></a>        <span class="ss">kind</span> <span class="o">=</span> <span class="s2">"vm"</span><span class="p">;</span>
 <a id="__codelineno-0-114" name="__codelineno-0-114" href="#__codelineno-0-114"></a>        <span class="c1"># We cannot ship Windows. The image and the licence are the user's.</span>
-<a id="__codelineno-0-115" name="__codelineno-0-115" href="#__codelineno-0-115"></a>        <span class="ss">image</span> <span class="o">=</span> <span class="s2">"/var/lib/omnis/images/win11.qcow2"</span><span class="p">;</span>
+<a id="__codelineno-0-115" name="__codelineno-0-115" href="#__codelineno-0-115"></a>        <span class="ss">image</span> <span class="o">=</span> <span class="s2">"/var/lib/omnix/images/win11.qcow2"</span><span class="p">;</span>
 <a id="__codelineno-0-116" name="__codelineno-0-116" href="#__codelineno-0-116"></a>        <span class="ss">resources</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">cpus</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="ss">memory</span> <span class="o">=</span> <span class="s2">"8G"</span><span class="p">;</span> <span class="p">};</span>
 <a id="__codelineno-0-117" name="__codelineno-0-117" href="#__codelineno-0-117"></a>        <span class="ss">apps</span> <span class="o">=</span> <span class="p">{</span>
 <a id="__codelineno-0-118" name="__codelineno-0-118" href="#__codelineno-0-118"></a>          <span class="c1"># Individual applications as ordinary windows, rather than a desktop in a box.</span>
@@ -415,8 +415,8 @@ work, and why runtime changes are written back into it.</p>
 <a id="__codelineno-0-171" name="__codelineno-0-171" href="#__codelineno-0-171"></a>    <span class="c1"># secret by name and can never read it.</span>
 <a id="__codelineno-0-172" name="__codelineno-0-172" href="#__codelineno-0-172"></a>    <span class="c1"># ─────────────────────────────────────────────────────────────────────────</span>
 <a id="__codelineno-0-173" name="__codelineno-0-173" href="#__codelineno-0-173"></a>    <span class="ss">secrets</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-174" name="__codelineno-0-174" href="#__codelineno-0-174"></a>      github<span class="o">.</span><span class="ss">ref</span>    <span class="o">=</span> <span class="s2">"keychain:omnis/github"</span><span class="p">;</span>
-<a id="__codelineno-0-175" name="__codelineno-0-175" href="#__codelineno-0-175"></a>      anthropic<span class="o">.</span><span class="ss">ref</span> <span class="o">=</span> <span class="s2">"keychain:omnis/anthropic"</span><span class="p">;</span>
+<a id="__codelineno-0-174" name="__codelineno-0-174" href="#__codelineno-0-174"></a>      github<span class="o">.</span><span class="ss">ref</span>    <span class="o">=</span> <span class="s2">"keychain:omnix/github"</span><span class="p">;</span>
+<a id="__codelineno-0-175" name="__codelineno-0-175" href="#__codelineno-0-175"></a>      anthropic<span class="o">.</span><span class="ss">ref</span> <span class="o">=</span> <span class="s2">"keychain:omnix/anthropic"</span><span class="p">;</span>
 <a id="__codelineno-0-176" name="__codelineno-0-176" href="#__codelineno-0-176"></a>    <span class="p">};</span>
 <a id="__codelineno-0-177" name="__codelineno-0-177" href="#__codelineno-0-177"></a>  <span class="p">};</span>
 <a id="__codelineno-0-178" name="__codelineno-0-178" href="#__codelineno-0-178"></a><span class="p">}</span>
@@ -434,7 +434,7 @@ work, and why runtime changes are written back into it.</p>
         </nav>
 
         <footer class="footer">
-          <span>Omnis</span>
+          <span>Omnix</span>
         </footer>
       </main>
 

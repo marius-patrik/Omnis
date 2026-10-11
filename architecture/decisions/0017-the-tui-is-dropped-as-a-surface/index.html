@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ADR-0017 — The TUI is dropped as a surface · Omnis</title>
+    <title>ADR-0017 — The TUI is dropped as a surface · Omnix</title>
     <meta name="description" content="Universal developer workspace and local-first personal data OS - one engine, many profiles.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
 
         <a class="header__brand" href="../../..">
           <span class="header__mark" aria-hidden="true"></span>
-          <span class="header__name">Omnis</span>
+          <span class="header__name">Omnix</span>
         </a>
 
         <div class="header__search">
@@ -140,7 +140,7 @@
     </li>
     <li class="nav__item">
       <a class="nav__link"
-         href="../0011-omnis-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnis is a kernel: bind existing services rather than reimplement them</a>
+         href="../0011-omnix-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnix is a kernel: bind existing services rather than reimplement them</a>
     </li>
     <li class="nav__item">
       <a class="nav__link"
@@ -244,7 +244,7 @@
 <li><strong>Closes</strong>: D15</li>
 </ul>
 <h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
-<p>ADR-0001 established two renderer backends over one scene tree: the GPU compositor, and <code>omnis-tui</code>
+<p>ADR-0001 established two renderer backends over one scene tree: the GPU compositor, and <code>omnix-tui</code>
 rendering the same scene tree as ANSI escape sequences in a real terminal. The second backend brought
 a parity contract (§9.4), a degradation ladder per primitive, terminal capability detection, kitty
 and SGR input decoding, a terminal capability floor to decide (D15), and an epic to build it (E22).</p>
@@ -254,20 +254,20 @@ compositor targets WebGPU, so the browser already hosts the real interface rathe
 <p>That leaves the TUI carrying a large, permanent tax for a shrinking benefit.</p>
 <h2 id="decision">Decision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
 <p><strong>There is one renderer backend: the GPU compositor.</strong> It targets a desktop window natively and a
-browser canvas over WebGPU. <code>omnis-tui</code> is not built.</p>
+browser canvas over WebGPU. <code>omnix-tui</code> is not built.</p>
 <p>What this does <strong>not</strong> remove:</p>
 <ul>
 <li><strong><code>cell-grid</code> presentation mode stays.</strong> The terminal <em>aesthetic</em> — fixed advance, ANSI palettes,
   pane-grid keyboard navigation, command-palette-first interaction — is a layout mode the GPU
   compositor draws, and was always separate from running in a terminal. The Zed-style look survives
   intact.</li>
-<li><strong>The CLI stays a surface.</strong> <code>omnis</code> with <code>--json</code> on every command is unaffected; it is not a
+<li><strong>The CLI stays a surface.</strong> <code>omnix</code> with <code>--json</code> on every command is unaffected; it is not a
   renderer.</li>
 <li><strong>The scene tree stays.</strong> It remains the single input to the renderer and the abstraction feature
   code targets. One backend does not make it optional — it is what keeps sources from reaching into
   rendering.</li>
 </ul>
-<p>What this removes: the <code>omnis-tui</code> crate, the parity contract, per-primitive terminal fallbacks (P7),
+<p>What this removes: the <code>omnix-tui</code> crate, the parity contract, per-primitive terminal fallbacks (P7),
 terminal capability detection, D15, and E22.</p>
 <h2 id="alternatives-rejected">Alternatives rejected<a class="headerlink" href="#alternatives-rejected" title="Permanent link">&para;</a></h2>
 <ul>
@@ -285,8 +285,8 @@ terminal capability detection, D15, and E22.</p>
 <h2 id="consequences">Consequences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>A machine with no display and no browser gets the CLI only.</strong> This is the real loss and it should
-  be named rather than discovered: SSH into a headless box and there is no interactive Omnis, only
-  <code>omnis</code> commands. If that becomes intolerable, this ADR is what gets superseded.</li>
+  be named rather than discovered: SSH into a headless box and there is no interactive Omnix, only
+  <code>omnix</code> commands. If that becomes intolerable, this ADR is what gets superseded.</li>
 <li><strong>Accessibility gets more important, not less.</strong> The TUI was one path to text-addressable output;
   with it gone, the compositor's published accessibility tree (UIA/AX/AT-SPI) is the <em>only</em> path.
   That work moves from important to non-negotiable.</li>
@@ -308,7 +308,7 @@ terminal capability detection, D15, and E22.</p>
         </nav>
 
         <footer class="footer">
-          <span>Omnis</span>
+          <span>Omnix</span>
         </footer>
       </main>
 

@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ADR-0002 — Themes are VS Code colour themes; profiles bundle them · Omnis</title>
+    <title>ADR-0002 — Themes are VS Code colour themes; profiles bundle them · Omnix</title>
     <meta name="description" content="Universal developer workspace and local-first personal data OS - one engine, many profiles.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
 
         <a class="header__brand" href="../../..">
           <span class="header__mark" aria-hidden="true"></span>
-          <span class="header__name">Omnis</span>
+          <span class="header__name">Omnix</span>
         </a>
 
         <div class="header__search">
@@ -140,7 +140,7 @@
     </li>
     <li class="nav__item">
       <a class="nav__link"
-         href="../0011-omnis-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnis is a kernel: bind existing services rather than reimplement them</a>
+         href="../0011-omnix-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnix is a kernel: bind existing services rather than reimplement them</a>
     </li>
     <li class="nav__item">
       <a class="nav__link"
@@ -253,7 +253,7 @@ piece of ecosystem compatibility available to this project.</p>
 <p><strong>A theme is colours, in the VS Code colour-theme format.</strong> <code>colors</code> (workbench keys),
 <code>tokenColors</code> (TextMate scopes), <code>semanticTokenColors</code>, and <code>type: dark | light | hc</code>. Existing VS
 Code colour themes load directly, unmodified. The VS Code colour key namespace is the canonical
-token namespace, <strong>extended</strong> where Omnis needs tokens VS Code lacks — material-layer inputs, and
+token namespace, <strong>extended</strong> where Omnix needs tokens VS Code lacks — material-layer inputs, and
 cell-grid specifics beyond the <code>terminal.ansi*</code> keys the format already provides.</p>
 <p><strong>File and product icon themes</strong> use the VS Code icon-theme format for the same reason.</p>
 <p><strong>A profile is a bundle</strong>: a theme reference, an icon theme reference, the five axis values
@@ -268,9 +268,9 @@ provider, model, or reasoning effort behind the user's back.</p>
 <li><strong>One concept called "theme"</strong> (the transcript). Hides that selecting one changes behaviour.</li>
 <li><strong>One concept called "profile", colours folded in.</strong> Throws away compatibility with thousands of
   existing themes, and forces every user to re-author colours they already have.</li>
-<li><strong>An Omnis-native colour format.</strong> Marginally cleaner, and it would mean nobody's existing theme
+<li><strong>An Omnix-native colour format.</strong> Marginally cleaner, and it would mean nobody's existing theme
   works on day one. The VS Code format is verbose and editor-shaped, and that is worth paying: it
-  also hands us the 16 ANSI terminal colours the cell-grid renderer and <code>omnis-tui</code> both need.</li>
+  also hands us the 16 ANSI terminal colours the cell-grid renderer and <code>omnix-tui</code> both need.</li>
 <li><strong>Binding persona to the bundle</strong> (the transcript's <code>aiPersona</code>). Selecting a <em>look</em> would silently
   select a model provider and reasoning effort.</li>
 </ul>
@@ -278,7 +278,7 @@ provider, model, or reasoning effort behind the user's back.</p>
 <ul>
 <li>A documented mapping from VS Code colour keys onto scene-tree primitives is required, and gaps in
   that mapping are a compatibility surface with its own versioning obligation.</li>
-<li>Themes authored for a DOM editor will not exercise every Omnis token; unmapped tokens need
+<li>Themes authored for a DOM editor will not exercise every Omnix token; unmapped tokens need
   defined fallbacks rather than undefined colour.</li>
 <li>Two lints, not one: no branching on theme name, no branching on profile name.</li>
 <li>Third-party trade dress becomes a data and licensing question (D3), not a code question.</li>
@@ -296,7 +296,7 @@ provider, model, or reasoning effort behind the user's back.</p>
         </nav>
 
         <footer class="footer">
-          <span>Omnis</span>
+          <span>Omnix</span>
         </footer>
       </main>
 

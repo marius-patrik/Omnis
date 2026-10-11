@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Overview · Omnis</title>
+    <title>Overview · Omnix</title>
     <meta name="description" content="Universal developer workspace and local-first personal data OS - one engine, many profiles.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
 
         <a class="header__brand" href="..">
           <span class="header__mark" aria-hidden="true"></span>
-          <span class="header__name">Omnis</span>
+          <span class="header__name">Omnix</span>
         </a>
 
         <div class="header__search">
@@ -140,7 +140,7 @@
     </li>
     <li class="nav__item">
       <a class="nav__link"
-         href="decisions/0011-omnis-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnis is a kernel: bind existing services rather than reimplement them</a>
+         href="decisions/0011-omnix-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnix is a kernel: bind existing services rather than reimplement them</a>
     </li>
     <li class="nav__item">
       <a class="nav__link"
@@ -237,13 +237,13 @@
 
       <main class="content" id="content">
         <article class="prose">
-          <h1 id="omnis-architecture">Omnis — Architecture<a class="headerlink" href="#omnis-architecture" title="Permanent link">&para;</a></h1>
+          <h1 id="omnix-architecture">Omnix — Architecture<a class="headerlink" href="#omnix-architecture" title="Permanent link">&para;</a></h1>
 <p><strong>Status: NORMATIVE, and the only normative document.</strong> Vision and architecture are one file: what
-Omnis is, why, and how it is built. The scoping transcript that started it is kept as source material
+Omnix is, why, and how it is built. The scoping transcript that started it is kept as source material
 in <a href="../notes/transcript/"><code>notes/transcript.md</code></a> and specifies nothing.</p>
 <p>Changes require a decision record in <a href="decisions/"><code>notes/adr/</code></a>.</p>
 <hr />
-<h2 id="1-what-omnis-is">1. What Omnis is<a class="headerlink" href="#1-what-omnis-is" title="Permanent link">&para;</a></h2>
+<h2 id="1-what-omnix-is">1. What Omnix is<a class="headerlink" href="#1-what-omnix-is" title="Permanent link">&para;</a></h2>
 <p><strong>An AI-first operating system for a power user's machine.</strong></p>
 <p><em>AI-first</em> here is a structural claim, not a description of a feature. An agent is a <strong>first-class
 operator</strong> of this system: it calls the same API as the user (P5), reads the same option schema the
@@ -254,10 +254,10 @@ with an author and a diff, gated before it takes effect and reversible after. Gi
 power over a machine is defensible exactly to the degree that its actions are reviewable and
 undoable — so the accountability machinery is not a constraint on the AI-first goal, it is the thing
 that makes it achievable.</p>
-<p>Omnis is a headless daemon that owns nothing you could get elsewhere, and everything that makes those
+<p>Omnix is a headless daemon that owns nothing you could get elsewhere, and everything that makes those
 things compose. Version control, packages, tasks, terminals, containers, language servers,
 debuggers, a browser, agents, secrets, and storage are all <strong>bound, not built</strong> — <code>git</code>, <code>sl</code>, Nix,
-podman, libvirt, Chromium, Tailscale, the coding-agent CLIs. What Omnis owns is the seams: one bus,
+podman, libvirt, Chromium, Tailscale, the coding-agent CLIs. What Omnix owns is the seams: one bus,
 one scene tree, one declaration, one modification surface, one audit trail.</p>
 <p>Four properties follow, and they are the whole design:</p>
 <p><strong>The system is declared, not configured.</strong> One file describes the machine — subsystems, packages,
@@ -354,7 +354,7 @@ a paragraph erodes on the first deadline.</p>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>              environments: containers · VMs · compat
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>              supervised peers — separate processes, the bus is the only ABI
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                                    ▲
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>CORE          omnisd — bus router · registry · capability broker · convergence &amp; generations
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>CORE          omnixd — bus router · registry · capability broker · convergence &amp; generations
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                                    ▲
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>BELOW         host OS · container runtime · Nix store · systemd · Tailscale · OS keychain
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>              bound, never owned
@@ -373,7 +373,7 @@ registry, brokering, convergence.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>omnisd</code></td>
+<td><code>omnixd</code></td>
 <td>Bus routing, subsystem registry, capability brokering, convergence, generations</td>
 <td>Render; contain a subsystem; depend on a surface being attached</td>
 </tr>
@@ -383,12 +383,12 @@ registry, brokering, convergence.</p>
 <td>Talk to each other except over the bus; self-register integration</td>
 </tr>
 <tr>
-<td><code>omnis-gui</code></td>
+<td><code>omnix-gui</code></td>
 <td>Window, renderer, input capture</td>
 <td>Own durable state; block on I/O</td>
 </tr>
 <tr>
-<td><code>omnis</code> (CLI)</td>
+<td><code>omnix</code> (CLI)</td>
 <td>Scriptable surface, <code>--json</code> on every command</td>
 <td>Reimplement daemon logic</td>
 </tr>
@@ -400,9 +400,9 @@ registry, brokering, convergence.</p>
 </tbody>
 </table>
 <h3 id="32-the-substrate-bus">3.2 The Substrate Bus<a class="headerlink" href="#32-the-substrate-bus" title="Permanent link">&para;</a></h3>
-<p><strong>Control</strong> (<code>omnis-control.sock</code>, <code>\\.\pipe\omnis-control</code>) — JSON-RPC 2.0. Capability checks,
+<p><strong>Control</strong> (<code>omnix-control.sock</code>, <code>\\.\pipe\omnix-control</code>) — JSON-RPC 2.0. Capability checks,
 declaration reads and writes, generation transitions, escrow tickets, registry and schema queries.</p>
-<p><strong>Data</strong> (<code>omnis-data.sock</code>, <code>\\.\pipe\omnis-data</code>) — binary multiplexer, uniform 9-byte header:</p>
+<p><strong>Data</strong> (<code>omnix-data.sock</code>, <code>\\.\pipe\omnix-data</code>) — binary multiplexer, uniform 9-byte header:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[StreamID: u32][Opcode: u8][PayloadLength: u32]
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>0x01 PTY_STREAM   raw terminal stdout/stdin
@@ -425,7 +425,7 @@ declaration reads and writes, generation transitions, escrow tickets, registry a
 <hr />
 <h2 id="4-the-declaration">4. The declaration<a class="headerlink" href="#4-the-declaration" title="Permanent link">&para;</a></h2>
 <p><strong>One file defines the system.</strong> Not settings the daemon reads — the definition it converges toward.
-See <a href="../declaration/"><code>examples/omnis.nix</code></a> for the reference declaration.</p>
+See <a href="../declaration/"><code>examples/omnix.nix</code></a> for the reference declaration.</p>
 <p>It is a <strong>Nix module</strong>. Not a format of our own that compiles to Nix: that means owning a language, a
 parser, a type system, an error-reporting story, and a compiler, to arrive where the Nix module
 system already is. We get typed options, merge semantics, <code>mkDefault</code>/<code>mkForce</code>, imports, and
@@ -482,7 +482,7 @@ is the only way the guarantee holds (P4).</p>
 <h3 id="54-backends-are-swappable">5.4 Backends are swappable<a class="headerlink" href="#54-backends-are-swappable" title="Permanent link">&para;</a></h3>
 <p>Where a subsystem fronts more than one implementation — <code>git</code> and <code>sl</code>, several task runners, several
 agent CLIs — the abstraction exists so they are <strong>interchangeable and removable</strong> (P2), not so either
-is reimplemented. Omnis owns the operation log, the cross-repository graph, and the harness registry.
+is reimplemented. Omnix owns the operation log, the cross-repository graph, and the harness registry.
 The tools stay the tools.</p>
 <hr />
 <h2 id="6-documentation-is-part-of-the-system">6. Documentation is part of the system<a class="headerlink" href="#6-documentation-is-part-of-the-system" title="Permanent link">&para;</a></h2>
@@ -517,7 +517,7 @@ front of you.</p>
 agents — through one API.</strong></p>
 <ul>
 <li><strong>No privileged surface.</strong> The GUI is a control-socket client like any other. If a setting can be
-  changed by clicking, it can be changed by <code>omnis</code> and by an agent over MCP, using the same
+  changed by clicking, it can be changed by <code>omnix</code> and by an agent over MCP, using the same
   operation (P5).</li>
 <li><strong>Introspectable, not guessable.</strong> Clients enumerate the option schema, the axes and their legal
   values, installed profiles, themes, keymaps, environments, and subsystems (§6.1).</li>
@@ -590,11 +590,11 @@ blocked run checkpoints and reports rather than dying silently.</p>
 checks whether the goal holds, and either stops or re-enters. Self-optimisation (§7.2) is a goal loop
 whose action is proposing a generation. Scheduled jobs are graphs with a time trigger. The task graph
 (§11) is the execution engine underneath, not a parallel system.</p>
-<p><strong>The proof this abstraction is right is that it already exists.</strong> The pipeline that builds Omnis —
+<p><strong>The proof this abstraction is right is that it already exists.</strong> The pipeline that builds Omnix —
 request, interpretation gate, plan, approval gate, implement, self-review loop, merge gate, with
 checkpoint-and-resume on quota exhaustion — <em>is</em> a goal loop with human gates and durable
 checkpoints. It is currently GitHub Actions and Python because the product does not exist yet. When
-it does, that pipeline should be an Omnis automation, and the fact that it was built by hand first
+it does, that pipeline should be an Omnix automation, and the fact that it was built by hand first
 means the abstraction is validated against a real workload rather than an imagined one.</p>
 <p><strong>Not built yet.</strong> This section specifies the shape; no automation engine exists. Its position in the
 roadmap is deliberate — an automation abstraction is only worth building once the bus, the
@@ -654,7 +654,7 @@ on my placement" becomes the standard bug report.</p>
 <h2 id="9-rendering">9. Rendering<a class="headerlink" href="#9-rendering" title="Permanent link">&para;</a></h2>
 <p><strong>Sources are not renderers.</strong> Cell-grid layout, widget layout, web content, guest windows, and 3D
 all emit primitives into one scene tree. Two <strong>backends</strong> consume it.</p>
-<p>There is <strong>one backend</strong>: the GPU compositor (<code>omnis-render</code>), targeting a desktop window natively
+<p>There is <strong>one backend</strong>: the GPU compositor (<code>omnix-render</code>), targeting a desktop window natively
 and a browser canvas over WebGPU (§8.1).</p>
 <p><code>cell-grid</code> presentation remains — the terminal <em>look</em>, fixed advance, ANSI palettes, pane-grid
 keyboard navigation, command-palette-first interaction — drawn by the compositor in a window. Looking
@@ -712,7 +712,7 @@ the other five can express <em>content we are not permitted to look at</em>.</p>
 <h3 id="93-3d-shaders-particles">9.3 3D, shaders, particles<a class="headerlink" href="#93-3d-shaders-particles" title="Permanent link">&para;</a></h3>
 <p>The material layer is a first-class primitive, not an effects add-on, available in every presentation
 mode — including behind and between glyph runs in the cell grid. Two uses, deliberately not
-conflated: <strong>chrome</strong> (backdrops, transitions, agent-activity fields) authored by Omnis and profiles,
+conflated: <strong>chrome</strong> (backdrops, transitions, agent-activity fields) authored by Omnix and profiles,
 and <strong>content</strong> (shader playgrounds, model preview, GPU-accelerated visualisation) supplied by a user
 or extension. The engine supports both; exposing authoring demands sandboxing, resource limits, and
 GPU-hang recovery, and is gated on D14.</p>
@@ -720,7 +720,7 @@ GPU-hang recovery, and is gated on D14.</p>
 <p>Some content cannot be drawn by us. DRM-protected playback requires a protected output path, so
 capturing it — in a browser canvas or from a guest window — yields black frames by design. Capture is
 the wrong verb.</p>
-<p>A <strong>native surface</strong> is delegated instead: Omnis declares the geometry, the clip, and the z-order, and
+<p>A <strong>native surface</strong> is delegated instead: Omnix declares the geometry, the clip, and the z-order, and
 the platform composites the content there through its own path. <strong>We never receive the pixels</strong>, which
 is exactly why it is permitted (Wayland subsurfaces, <code>CALayer</code>/<code>AVSampleBufferDisplayLayer</code>,
 DirectComposition visuals).</p>
@@ -832,7 +832,7 @@ comparable product.</p>
 they are two <em>placements</em> of the same bar — floating and centred, or anchored into the focused pane.
 <code>hybrid</code> mixes them.</p>
 <p><strong>Everything is addressable.</strong> Panes, files, settings pages, documentation, chats, repositories,
-tasks, context fragments, and guest environments all have an <code>omnis://</code> address. Addressability is
+tasks, context fragments, and guest environments all have an <code>omnix://</code> address. Addressability is
 what makes the rest of this work: it is what the input bar navigates to, what the CLI takes as an
 argument, what an agent cites in a proposal, and what a link in the documentation points at.</p>
 <p><strong>Navigation is global.</strong> Because everything is addressed, <strong>back, forward, and reload</strong> are system
@@ -853,11 +853,11 @@ the second.</p>
   one user's store: an attacker with store access who can guess a plaintext can confirm its presence.
   A bounded, accepted property, not an oversight.</li>
 <li><strong>Context fragments</strong> — everything captured normalises to one envelope regardless of origin (code
-  selection, terminal buffer, browser page, container log), addressable as <code>omnis://context/&lt;id&gt;</code>,
+  selection, terminal buffer, browser page, container log), addressable as <code>omnix://context/&lt;id&gt;</code>,
   payload in the CAS. Per-origin formats would mean an adapter per origin per consumer.</li>
 <li><strong>The VCS operation log</strong> — every mutating operation appends an entry carrying enough state to
   invert it. Undo is a first-class operation over that log, not reconstruction from git internals,
-  and it holds identically for Git and Sapling because the log is Omnis's. Operations that are not
+  and it holds identically for Git and Sapling because the log is Omnix's. Operations that are not
   losslessly invertible must capture the discarded state into the CAS first, or refuse.</li>
 <li><strong>Task identity is the hash of its inputs</strong> — source content, dependency output hashes, the command
   line, the declared environment. Not a timestamp: <code>mtime</code> changes on checkout and fails to change on
@@ -892,7 +892,7 @@ the same complete removal (§5.3).</p>
 </tr>
 </tbody>
 </table>
-<p><strong>The universal translator already exists.</strong> <code>omnis-web-source</code>'s semantic mode — AXTree to layout to
+<p><strong>The universal translator already exists.</strong> <code>omnix-web-source</code>'s semantic mode — AXTree to layout to
 primitives — renders any service with a web interface <em>today</em>, as real primitives rather than a
 rectangle of pixels: keyboard-navigable, themeable, and legible to an agent.</p>
 <p>Four tiers, progressive, with no cliff:</p>
@@ -953,24 +953,24 @@ the same treatment as trade dress (D3).</p>
 <hr />
 <h2 id="14-crate-and-package-layout">14. Crate and package layout<a class="headerlink" href="#14-crate-and-package-layout" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>crates/
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  omnis-core/          bus contracts, option schema, scene tree types, capability matrix
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  omnisd/              the core: routing, registry, brokering, convergence, generations
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  omnis-cli/           `omnis`, `--json` on every command
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  omnis-gui/           desktop host and window manager
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  omnis-render/        GPU compositor: frame graph, primitives, glyph atlas, material passes
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  omnis-layout/        cell-grid and widget layout modes
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  omnis-browser/       Chromium supervisor and CDP bridge
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  omnis-web-source/    AXTree→layout and screencast→texture bridges; the default service backend
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  omnis-cas/           chunking, convergent encryption, VFS
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>  omnis-agent/         harness registry, session supervision, MCP bridge
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>  omnis-docs/          option schema → documentation, search index, in-product docs surface
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  omnix-core/          bus contracts, option schema, scene tree types, capability matrix
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  omnixd/              the core: routing, registry, brokering, convergence, generations
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  omnix-cli/           `omnix`, `--json` on every command
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  omnix-gui/           desktop host and window manager
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  omnix-render/        GPU compositor: frame graph, primitives, glyph atlas, material passes
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  omnix-layout/        cell-grid and widget layout modes
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  omnix-browser/       Chromium supervisor and CDP bridge
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  omnix-web-source/    AXTree→layout and screencast→texture bridges; the default service backend
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  omnix-cas/           chunking, convergent encryption, VFS
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>  omnix-agent/         harness registry, session supervision, MCP bridge
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>  omnix-docs/          option schema → documentation, search index, in-product docs surface
 <a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>subsystems/            one adapter binary per bound tool — vcs, terminals, lsp, dap, tasks, …
 <a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>packages/
 <a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>  frontend/            web surface shell
 <a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>  profiles/            profiles and themes — data only, no code
 <a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>nix/                   modules defining the declaration's option schema
 <a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>examples/
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>  omnis.nix            the reference declaration
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>  omnix.nix            the reference declaration
 </code></pre></div>
 <p>Nothing here exists yet. It is the target shape, and the reason <code>ci.yml</code> already carries guarded Rust
 and web jobs.</p>
@@ -1053,7 +1053,7 @@ and web jobs.</p>
 </tr>
 <tr>
 <td>D14</td>
-<td><strong>Shader and 3D exposure</strong> — Omnis and profiles only, or users and extensions</td>
+<td><strong>Shader and 3D exposure</strong> — Omnix and profiles only, or users and extensions</td>
 <td>E21</td>
 </tr>
 <tr>
@@ -1082,14 +1082,14 @@ is deliberate and independent of the product stack.</p>
         </nav>
 
         <footer class="footer">
-          <span>Omnis</span>
+          <span>Omnix</span>
         </footer>
       </main>
 
       <aside class="toc">
         <div class="toc__title">On this page</div>
         <ul class="toc__list">
-          <li><a href="#1-what-omnis-is">1. What Omnis is</a>
+          <li><a href="#1-what-omnix-is">1. What Omnix is</a>
           </li>
           <li><a href="#2-principles">2. Principles</a>
           </li>

@@ -4,6 +4,10 @@
     {
       "name": "main",
       "path": ""
+    },
+    {
+      "name": "PR #51",
+      "path": "pr-51"
     }
   ],
   "projects": [
@@ -12,8 +16,8 @@
       "url": "https://marius-patrik.github.io/DarkFactory/"
     },
     {
-      "name": "Omnis",
-      "url": "https://marius-patrik.github.io/omnis/"
+      "name": "Omnix",
+      "url": "https://marius-patrik.github.io/omnix/"
     },
     {
       "name": "ChessWithQuests",

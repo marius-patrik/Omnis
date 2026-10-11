@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Roadmap · Omnis</title>
+    <title>Roadmap · Omnix</title>
     <meta name="description" content="Universal developer workspace and local-first personal data OS - one engine, many profiles.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
 
         <a class="header__brand" href="..">
           <span class="header__mark" aria-hidden="true"></span>
-          <span class="header__name">Omnis</span>
+          <span class="header__name">Omnix</span>
         </a>
 
         <div class="header__search">
@@ -140,7 +140,7 @@
     </li>
     <li class="nav__item">
       <a class="nav__link"
-         href="../architecture/decisions/0011-omnis-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnis is a kernel: bind existing services rather than reimplement them</a>
+         href="../architecture/decisions/0011-omnix-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnix is a kernel: bind existing services rather than reimplement them</a>
     </li>
     <li class="nav__item">
       <a class="nav__link"
@@ -237,7 +237,7 @@
 
       <main class="content" id="content">
         <article class="prose">
-          <h1 id="omnis-roadmap">Omnis — Roadmap<a class="headerlink" href="#omnis-roadmap" title="Permanent link">&para;</a></h1>
+          <h1 id="omnix-roadmap">Omnix — Roadmap<a class="headerlink" href="#omnix-roadmap" title="Permanent link">&para;</a></h1>
 <p>Authoritative list of epics and their sequencing. Every <code>epic</code>-labelled GitHub issue corresponds to
 exactly one row here. Epics are containers: never implemented directly, only their child <code>Request</code>
 issues are. Update this file whenever an epic is added, split, completed, or dropped
@@ -289,7 +289,7 @@ issues are. Update this file whenever an epic is added, split, completed, or dro
 <td>Substrate Bus, daemon, process topology</td>
 <td><code>area:core</code></td>
 <td>D1, D9</td>
-<td><code>omnis-proto</code> wire schema; control socket (JSON-RPC 2.0) and data socket (9-byte framed binary, opcodes <code>0x01</code>–<code>0x05</code>); additive versioning; <code>omnisd</code> conditional subsystem bootloader; the <code>Subsystem</code> trait; surface attach/detach; crash isolation.</td>
+<td><code>omnix-proto</code> wire schema; control socket (JSON-RPC 2.0) and data socket (9-byte framed binary, opcodes <code>0x01</code>–<code>0x05</code>); additive versioning; <code>omnixd</code> conditional subsystem bootloader; the <code>Subsystem</code> trait; surface attach/detach; crash isolation.</td>
 </tr>
 <tr>
 <td>E9</td>
@@ -307,7 +307,7 @@ issues are. Update this file whenever an epic is added, split, completed, or dro
 </tr>
 <tr>
 <td>E3</td>
-<td>GPU compositor (<code>omnis-render</code>)</td>
+<td>GPU compositor (<code>omnix-render</code>)</td>
 <td><code>area:term</code></td>
 <td>D4, D7, D11, D12, E10</td>
 <td><strong>The</strong> renderer. Frame graph, batched instanced primitives (quad, glyph run, texture, path, material layer, native surface), shared glyph atlas and shaping, damage tracking, device-loss handling, the material-layer pass that 3D and particles ride on, and the delegated-region path DRM playback and guest windows depend on (§9.4). Accessibility (UIA/AX/AT-SPI) is acceptance criteria, not a follow-up.</td>
@@ -329,7 +329,7 @@ issues are. Update this file whenever an epic is added, split, completed, or dro
 </tbody>
 </table>
 <h2 id="phase-2-the-developer-substrate">Phase 2 — The developer substrate<a class="headerlink" href="#phase-2-the-developer-substrate" title="Permanent link">&para;</a></h2>
-<p>The subsystems that make Omnis a workspace rather than a shell. Each is independently omittable
+<p>The subsystems that make Omnix a workspace rather than a shell. Each is independently omittable
 (<code>ARCHITECTURE.md</code> §2.2) and each must pass D9's admission criteria.</p>
 <table>
 <thead>
@@ -347,7 +347,7 @@ issues are. Update this file whenever an epic is added, split, completed, or dro
 <td>Vault, SSH/GPG agent, secure process spawn</td>
 <td><code>area:core</code></td>
 <td>D4, D10, E1</td>
-<td>Argon2id KEK in <code>Zeroizing</code> with <code>mlock</code>; OS keychain bridging (Keychain, DPAPI, Secret Service); <code>omnis-ssh-agent</code> on <code>~/.omnis/ssh.sock</code>; <code>.env</code> injection into child memory maps, never disk and never agent context.</td>
+<td>Argon2id KEK in <code>Zeroizing</code> with <code>mlock</code>; OS keychain bridging (Keychain, DPAPI, Secret Service); <code>omnix-ssh-agent</code> on <code>~/.omnix/ssh.sock</code>; <code>.env</code> injection into child memory maps, never disk and never agent context.</td>
 </tr>
 <tr>
 <td>E12</td>
@@ -361,7 +361,7 @@ issues are. Update this file whenever an epic is added, split, completed, or dro
 <td>Content-addressed storage and VFS</td>
 <td><code>area:data</code></td>
 <td>E6</td>
-<td><code>omnis-cas</code>: FastCDC chunking, BLAKE3 keys, convergent encryption, reflink deduplication, multi-provider VFS mounts, central inotify watcher.</td>
+<td><code>omnix-cas</code>: FastCDC chunking, BLAKE3 keys, convergent encryption, reflink deduplication, multi-provider VFS mounts, central inotify watcher.</td>
 </tr>
 <tr>
 <td>E14</td>
@@ -382,14 +382,14 @@ issues are. Update this file whenever an epic is added, split, completed, or dro
 <td>Packages and extensions — the binary substrate</td>
 <td><code>area:ext</code></td>
 <td>D5, E1</td>
-<td>The two universes kept separate: <code>omnis pkg</code> (project and system dependencies) versus <code>omnis ext</code> (client, editor, agent capabilities). Install, resolve, cache, grant.</td>
+<td>The two universes kept separate: <code>omnix pkg</code> (project and system dependencies) versus <code>omnix ext</code> (client, editor, agent capabilities). Install, resolve, cache, grant.</td>
 </tr>
 <tr>
 <td>E17</td>
 <td>LSP hub and DAP</td>
 <td><code>area:core</code></td>
 <td>E1, E12</td>
-<td><code>omnis-lsp</code> multiplexer, <code>omnis-dap</code> implementation.</td>
+<td><code>omnix-lsp</code> multiplexer, <code>omnix-dap</code> implementation.</td>
 </tr>
 </tbody>
 </table>
@@ -411,7 +411,7 @@ issues are. Update this file whenever an epic is added, split, completed, or dro
 <td>Layout modes — cell-grid and widget</td>
 <td><code>area:term</code></td>
 <td>E3, E10</td>
-<td><code>omnis-layout</code>: the cell-grid mode (fixed advance, 24-bit TrueColor with SGR attributes, 256-colour ANSI palettes, cursor shapes, pane-grid keyboard navigation, command-palette-first interaction, inline inspector strips) and the widget mode, both emitting scene-tree primitives. <code>hybrid</code> mixes them per pane.</td>
+<td><code>omnix-layout</code>: the cell-grid mode (fixed advance, 24-bit TrueColor with SGR attributes, 256-colour ANSI palettes, cursor shapes, pane-grid keyboard navigation, command-palette-first interaction, inline inspector strips) and the widget mode, both emitting scene-tree primitives. <code>hybrid</code> mixes them per pane.</td>
 </tr>
 <tr>
 <td>E4</td>
@@ -425,7 +425,7 @@ issues are. Update this file whenever an epic is added, split, completed, or dro
 <td>Browser as a source</td>
 <td><code>area:browser</code></td>
 <td>E3, E20, D7, D13</td>
-<td><code>omnis-browser</code> Chromium/CDP worker and <code>omnis-web-source</code>: semantic mode (AXTree → layout → primitives, keyboard-navigable) and raster mode (screencast → texture), <code>auto</code>/<code>hybrid</code> selection, FPS budget, and webview compositing per D13.</td>
+<td><code>omnix-browser</code> Chromium/CDP worker and <code>omnix-web-source</code>: semantic mode (AXTree → layout → primitives, keyboard-navigable) and raster mode (screencast → texture), <code>auto</code>/<code>hybrid</code> selection, FPS budget, and webview compositing per D13.</td>
 </tr>
 <tr>
 <td>E21</td>
@@ -453,7 +453,7 @@ issues are. Update this file whenever an epic is added, split, completed, or dro
 <td>Agent harness, audit stream, approval escrow</td>
 <td><code>area:agents</code></td>
 <td>D6, E1, E11</td>
-<td>Provider adapter contract; <code>omnis-agent</code> and the <code>@omnis/agent</code> MCP bridge; session supervision; immutable append-only audit stream with a one-click killswitch; escrow tickets with expiry. Decoupled from profiles by <code>ARCHITECTURE.md</code> §3.</td>
+<td>Provider adapter contract; <code>omnix-agent</code> and the <code>@omnix/agent</code> MCP bridge; session supervision; immutable append-only audit stream with a one-click killswitch; escrow tickets with expiry. Decoupled from profiles by <code>ARCHITECTURE.md</code> §3.</td>
 </tr>
 <tr>
 <td>E8</td>
@@ -467,7 +467,7 @@ issues are. Update this file whenever an epic is added, split, completed, or dro
 <td>Universal context fabric</td>
 <td><code>area:core</code></td>
 <td>E13, E1</td>
-<td><code>ContextFragment</code> harvesting from code selections, terminal buffers, browser pages, and container logs; persistent sidebar shelf; <code>omnis://context/&lt;id&gt;</code> URIs.</td>
+<td><code>ContextFragment</code> harvesting from code selections, terminal buffers, browser pages, and container logs; persistent sidebar shelf; <code>omnix://context/&lt;id&gt;</code> URIs.</td>
 </tr>
 <tr>
 <td>E19</td>
@@ -514,7 +514,7 @@ issues are. Update this file whenever an epic is added, split, completed, or dro
    of the interface we no longer control — unstyleable, uncapturable, and awkward to layer. It is
    correct for DRM playback and heavy platform-composited content, and wrong for anything that
    could have been a texture.</li>
-<li><strong>D1 is a slice, not a thesis.</strong> The architecture already says what Omnis does. What it does not
+<li><strong>D1 is a slice, not a thesis.</strong> The architecture already says what Omnix does. What it does not
    say is which path gets built first — and that choice determines which bus messages, which
    subsystem, and which surface come into existence first.</li>
 </ol>
@@ -531,7 +531,7 @@ issues are. Update this file whenever an epic is added, split, completed, or dro
         </nav>
 
         <footer class="footer">
-          <span>Omnis</span>
+          <span>Omnix</span>
         </footer>
       </main>
 

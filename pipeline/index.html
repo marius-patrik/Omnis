@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Automation pipeline · Omnis</title>
+    <title>Automation pipeline · Omnix</title>
     <meta name="description" content="Universal developer workspace and local-first personal data OS - one engine, many profiles.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
 
         <a class="header__brand" href="..">
           <span class="header__mark" aria-hidden="true"></span>
-          <span class="header__name">Omnis</span>
+          <span class="header__name">Omnix</span>
         </a>
 
         <div class="header__search">
@@ -140,7 +140,7 @@
     </li>
     <li class="nav__item">
       <a class="nav__link"
-         href="../architecture/decisions/0011-omnis-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnis is a kernel: bind existing services rather than reimplement them</a>
+         href="../architecture/decisions/0011-omnix-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnix is a kernel: bind existing services rather than reimplement them</a>
     </li>
     <li class="nav__item">
       <a class="nav__link"
@@ -238,7 +238,7 @@
       <main class="content" id="content">
         <article class="prose">
           <h1 id="the-automation-pipeline">The automation pipeline<a class="headerlink" href="#the-automation-pipeline" title="Permanent link">&para;</a></h1>
-<p>Omnis is built by an autonomous agent pipeline under human approval gates. This documents how it
+<p>Omnix is built by an autonomous agent pipeline under human approval gates. This documents how it
 works, what each part is for, and where it can fail. The binding rules are in <code>AGENTS.md</code>; this is
 the explanation behind them.</p>
 <hr />
@@ -456,7 +456,7 @@ did not.</p>
 </tr>
 <tr>
 <td>Agent replies to itself in a loop</td>
-<td>Bot-comment detection. Agent comments carry an <code>&lt;!-- omnis-agent --&gt;</code> marker and are ignored on the way back in.</td>
+<td>Bot-comment detection. Agent comments carry an <code>&lt;!-- omnix-agent --&gt;</code> marker and are ignored on the way back in.</td>
 </tr>
 </tbody>
 </table>
@@ -520,12 +520,12 @@ permanently skipped tests nothing and rots quietly; it lands with the first arti
 </ul>
 <p>The constraint is the same as everywhere else: it <strong>proposes</strong>, a human disposes. An agent that files
 its own work items is an agent that sets its own scope.</p>
-<h3 id="the-pipeline-becomes-an-omnis-automation">The pipeline becomes an Omnis automation<a class="headerlink" href="#the-pipeline-becomes-an-omnis-automation" title="Permanent link">&para;</a></h3>
+<h3 id="the-pipeline-becomes-an-omnix-automation">The pipeline becomes an Omnix automation<a class="headerlink" href="#the-pipeline-becomes-an-omnix-automation" title="Permanent link">&para;</a></h3>
 <p><code>ARCHITECTURE.md</code> §7.3 defines automations as declared graphs with triggers, gates, checkpoints, and
 a termination condition. This pipeline — request, interpretation gate, plan, approval gate,
 implement, self-review loop, merge gate, checkpoint-and-resume on quota exhaustion — <em>is</em> one of
 those, currently expressed in GitHub Actions and Python because the product does not exist.</p>
-<p>When it does, this pipeline should be declared as an Omnis automation and run by it. That is the
+<p>When it does, this pipeline should be declared as an Omnix automation and run by it. That is the
 honest test of the abstraction: it was derived from a real workload rather than an imagined one, and
 the workload is this repository.</p>
         </article>
@@ -541,7 +541,7 @@ the workload is this repository.</p>
         </nav>
 
         <footer class="footer">
-          <span>Omnis</span>
+          <span>Omnix</span>
         </footer>
       </main>
 
@@ -574,7 +574,7 @@ the workload is this repository.</p>
             <ul>
               <li><a href="#release-automation">Release automation</a></li>
               <li><a href="#decomposition-and-planning-assistance">Decomposition and planning assistance</a></li>
-              <li><a href="#the-pipeline-becomes-an-omnis-automation">The pipeline becomes an Omnis automation</a></li>
+              <li><a href="#the-pipeline-becomes-an-omnix-automation">The pipeline becomes an Omnix automation</a></li>
             </ul>
           </li>
         </ul>

@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Capture provenance · Omnis</title>
+    <title>Capture provenance · Omnix</title>
     <meta name="description" content="Universal developer workspace and local-first personal data OS - one engine, many profiles.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
 
         <a class="header__brand" href="../..">
           <span class="header__mark" aria-hidden="true"></span>
-          <span class="header__name">Omnis</span>
+          <span class="header__name">Omnix</span>
         </a>
 
         <div class="header__search">
@@ -140,7 +140,7 @@
     </li>
     <li class="nav__item">
       <a class="nav__link"
-         href="../../architecture/decisions/0011-omnis-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnis is a kernel: bind existing services rather than reimplement them</a>
+         href="../../architecture/decisions/0011-omnix-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnix is a kernel: bind existing services rather than reimplement them</a>
     </li>
     <li class="nav__item">
       <a class="nav__link"
@@ -238,7 +238,7 @@
       <main class="content" id="content">
         <article class="prose">
           <h1 id="vision-capture-provenance">Vision capture — provenance<a class="headerlink" href="#vision-capture-provenance" title="Permanent link">&para;</a></h1>
-<p><code>notes/transcript.md</code> is a transcript of the scoping conversation that produced Omnis. This note records where
+<p><code>notes/transcript.md</code> is a transcript of the scoping conversation that produced Omnix. This note records where
 it came from and how it was captured.</p>
 <h2 id="source">Source<a class="headerlink" href="#source" title="Permanent link">&para;</a></h2>
 <ul>
@@ -311,12 +311,12 @@ debugging port belonged to an unrelated application.</p>
 profile, which worked in one pass:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 1. Open the conversation in a named session so the tabs stay grouped.</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="o">{</span><span class="s2">"action"</span>:<span class="s2">"navigate"</span>,<span class="s2">"args"</span>:<span class="o">{</span><span class="s2">"url"</span>:<span class="s2">"&lt;conversation url&gt;"</span>,<span class="s2">"newTab"</span>:true,
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w"> </span><span class="s2">"group_title"</span>:<span class="s2">"Omnis vision capture"</span><span class="o">}</span>,<span class="s2">"session"</span>:<span class="s2">"omnis-vision-capture"</span><span class="o">}</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w"> </span><span class="s2">"group_title"</span>:<span class="s2">"Omnix vision capture"</span><span class="o">}</span>,<span class="s2">"session"</span>:<span class="s2">"omnix-vision-capture"</span><span class="o">}</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># 2. Extract every turn as JSON, writing curl's output straight to a file.</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="o">{</span><span class="s2">"action"</span>:<span class="s2">"evaluate"</span>,<span class="s2">"args"</span>:<span class="o">{</span><span class="s2">"code"</span>:<span class="s2">"(() =&gt; { const els = [...document.querySelectorAll(</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="s2"> 'user-query, model-response')]; return JSON.stringify(els.map((e,i) =&gt; ({i,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="s2"> role: e.tagName.toLowerCase(), text: e.innerText}))); })()"</span><span class="o">}</span>,<span class="s2">"session"</span>:<span class="s2">"omnis-vision-capture"</span><span class="o">}</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="s2"> role: e.tagName.toLowerCase(), text: e.innerText}))); })()"</span><span class="o">}</span>,<span class="s2">"session"</span>:<span class="s2">"omnix-vision-capture"</span><span class="o">}</span>
 </code></pre></div>
 <p><strong>The lesson worth keeping:</strong> route bulk extraction to a file on disk, never through a tool result.
 Tool output is truncated (1,000 characters for the Chrome extension's JavaScript results) and
@@ -341,7 +341,7 @@ literally would be a mistake. Those are decisions, not defects; several are alre
         </nav>
 
         <footer class="footer">
-          <span>Omnis</span>
+          <span>Omnix</span>
         </footer>
       </main>
 

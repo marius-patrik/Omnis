@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ADR-0013 — Subsystems run beside the core, never inside it · Omnis</title>
+    <title>ADR-0013 — Subsystems run beside the core, never inside it · Omnix</title>
     <meta name="description" content="Universal developer workspace and local-first personal data OS - one engine, many profiles.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
 
         <a class="header__brand" href="../../..">
           <span class="header__mark" aria-hidden="true"></span>
-          <span class="header__name">Omnis</span>
+          <span class="header__name">Omnix</span>
         </a>
 
         <div class="header__search">
@@ -140,7 +140,7 @@
     </li>
     <li class="nav__item">
       <a class="nav__link"
-         href="../0011-omnis-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnis is a kernel: bind existing services rather than reimplement them</a>
+         href="../0011-omnix-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnix is a kernel: bind existing services rather than reimplement them</a>
     </li>
     <li class="nav__item">
       <a class="nav__link"
@@ -244,19 +244,19 @@
 <li><strong>Depends on</strong>: ADR-0011, ADR-0012</li>
 </ul>
 <h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
-<p><code>ARCHITECTURE.md</code> §2.2 has <code>omnisd</code> initialising subsystems in-process from a <code>features</code> block, and
+<p><code>ARCHITECTURE.md</code> §2.2 has <code>omnixd</code> initialising subsystems in-process from a <code>features</code> block, and
 states that "every subsystem must be independently omittable" as a rule contributors must honour.</p>
 <p>Rules honoured by discipline erode. With seventeen subsystems in one address space, the first
 deadline produces a direct call between two of them, and the property is quietly gone with nothing
 failing to signal it.</p>
 <h2 id="decision">Decision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
-<p>Four layers. Nothing runs inside <code>omnisd</code>.</p>
+<p>Four layers. Nothing runs inside <code>omnixd</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>SURFACES      gui · tui · cli · web · external harnesses
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                              ▲
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>NEXT TO       vcs · pty · lsp · dap · browser · cas · tasks · exthost · agent · environments
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>              supervised peers — separate processes, the bus is the only ABI
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                              ▲
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>CORE          omnisd — bus router, registry, capability broker, convergence and generations
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>CORE          omnixd — bus router, registry, capability broker, convergence and generations
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                              ▲
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>BELOW         host OS · container runtime · Nix store · systemd · Tailscale · OS keychain
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>              bound, never owned
@@ -325,7 +325,7 @@ guarantee above can hold.</p>
         </nav>
 
         <footer class="footer">
-          <span>Omnis</span>
+          <span>Omnix</span>
         </footer>
       </main>
 

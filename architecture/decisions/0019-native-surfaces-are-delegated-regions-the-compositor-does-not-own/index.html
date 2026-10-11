@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ADR-0019 — Native surfaces are delegated regions the compositor does not own · Omnis</title>
+    <title>ADR-0019 — Native surfaces are delegated regions the compositor does not own · Omnix</title>
     <meta name="description" content="Universal developer workspace and local-first personal data OS - one engine, many profiles.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
 
         <a class="header__brand" href="../../..">
           <span class="header__mark" aria-hidden="true"></span>
-          <span class="header__name">Omnis</span>
+          <span class="header__name">Omnix</span>
         </a>
 
         <div class="header__search">
@@ -140,7 +140,7 @@
     </li>
     <li class="nav__item">
       <a class="nav__link"
-         href="../0011-omnis-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnis is a kernel: bind existing services rather than reimplement them</a>
+         href="../0011-omnix-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnix is a kernel: bind existing services rather than reimplement them</a>
     </li>
     <li class="nav__item">
       <a class="nav__link"
@@ -256,7 +256,7 @@ performance cost and a fidelity loss.</p>
 <h2 id="decision">Decision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
 <p>Add a sixth primitive: a <strong>native surface</strong> — a region the scene tree <strong>delegates</strong> rather than
 draws.</p>
-<p>Omnis declares the geometry, the clip, and the z-order. The <strong>platform</strong> composites someone else's
+<p>Omnix declares the geometry, the clip, and the z-order. The <strong>platform</strong> composites someone else's
 content there, through its own path. <strong>We never receive the pixels</strong>, which is precisely why it is
 permitted where capture is not.</p>
 <table>
@@ -312,7 +312,7 @@ we no longer control. If content can be a texture, it should be.</p>
 <li><strong>Accept that DRM services cannot be presented at all.</strong> Honest, and it removes a large part of the
   point of ADR-0018's streaming domain. Search, metadata, and queue can be unified even when playback
   cannot — but only if playback has somewhere to go.</li>
-<li><strong>Ship a separate player window outside Omnis.</strong> Solves DRM by leaving the product. The whole
+<li><strong>Ship a separate player window outside Omnix.</strong> Solves DRM by leaving the product. The whole
   premise is composition.</li>
 <li><strong>Attempt to defeat the protected path.</strong> Not a design option.</li>
 </ul>
@@ -342,7 +342,7 @@ we no longer control. If content can be a texture, it should be.</p>
         </nav>
 
         <footer class="footer">
-          <span>Omnis</span>
+          <span>Omnix</span>
         </footer>
       </main>
 

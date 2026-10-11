@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ADR-0012 — The system is one declarative configuration, applied as generations · Omnis</title>
+    <title>ADR-0012 — The system is one declarative configuration, applied as generations · Omnix</title>
     <meta name="description" content="Universal developer workspace and local-first personal data OS - one engine, many profiles.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
 
         <a class="header__brand" href="../../..">
           <span class="header__mark" aria-hidden="true"></span>
-          <span class="header__name">Omnis</span>
+          <span class="header__name">Omnix</span>
         </a>
 
         <div class="header__search">
@@ -140,7 +140,7 @@
     </li>
     <li class="nav__item">
       <a class="nav__link"
-         href="../0011-omnis-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnis is a kernel: bind existing services rather than reimplement them</a>
+         href="../0011-omnix-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnix is a kernel: bind existing services rather than reimplement them</a>
     </li>
     <li class="nav__item">
       <a class="nav__link nav__link--active"
@@ -268,7 +268,7 @@ NixOS sense: you describe the desired state, evaluation produces a system, and a
 </ul>
 <h2 id="why-this-completes-two-earlier-records">Why this completes two earlier records<a class="headerlink" href="#why-this-completes-two-earlier-records" title="Permanent link">&para;</a></h2>
 <p><strong>ADR-0003's reversibility becomes a mechanism.</strong> "Any change an agent makes can be inspected,
-diffed, and rolled back" stops being a design intention and becomes <code>omnis rollback</code> — the same
+diffed, and rolled back" stops being a design intention and becomes <code>omnix rollback</code> — the same
 operation for a typo, a bad profile, and a misbehaving agent.</p>
 <p><strong>ADR-0006's attribution gets a natural unit.</strong> A generation has an author. An agent reconfiguring
 your system produces a reviewable change with a parent commit, not an untraceable mutation. Audit
@@ -304,9 +304,9 @@ already promised have no other credible implementation.</p>
 </ul>
         </article>
         <nav class="pager" aria-label="Page navigation">
-          <a class="pager__link pager__link--prev" href="../0011-omnis-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">
+          <a class="pager__link pager__link--prev" href="../0011-omnix-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">
             <span class="pager__label">Previous</span>
-            <span class="pager__title">ADR-0011 — Omnis is a kernel: bind existing services rather than reimplement them</span>
+            <span class="pager__title">ADR-0011 — Omnix is a kernel: bind existing services rather than reimplement them</span>
           </a>
           <a class="pager__link pager__link--next" href="../0013-subsystems-run-beside-the-core-never-inside-it/">
             <span class="pager__label">Next</span>
@@ -315,7 +315,7 @@ already promised have no other credible implementation.</p>
         </nav>
 
         <footer class="footer">
-          <span>Omnis</span>
+          <span>Omnix</span>
         </footer>
       </main>
 

@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ADR-0007 — Every mutating VCS operation is invertible from an operation log · Omnis</title>
+    <title>ADR-0007 — Every mutating VCS operation is invertible from an operation log · Omnix</title>
     <meta name="description" content="Universal developer workspace and local-first personal data OS - one engine, many profiles.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
 
         <a class="header__brand" href="../../..">
           <span class="header__mark" aria-hidden="true"></span>
-          <span class="header__name">Omnis</span>
+          <span class="header__name">Omnix</span>
         </a>
 
         <div class="header__search">
@@ -140,7 +140,7 @@
     </li>
     <li class="nav__item">
       <a class="nav__link"
-         href="../0011-omnis-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnis is a kernel: bind existing services rather than reimplement them</a>
+         href="../0011-omnix-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnix is a kernel: bind existing services rather than reimplement them</a>
     </li>
     <li class="nav__item">
       <a class="nav__link"
@@ -248,7 +248,7 @@ worktree state, is not queryable, and does not exist for Sapling.</p>
 <h2 id="decision">Decision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
 <p>Every mutating VCS operation appends an entry to an atomic operation log (<code>vcs_op_log</code>) that carries
 enough state to invert it. Undo is a first-class operation over that log, not a reconstruction from
-git internals. This holds identically for Git and Sapling — the log is Omnis's, not the backend's.</p>
+git internals. This holds identically for Git and Sapling — the log is Omnix's, not the backend's.</p>
 <p>The backends themselves are <code>git</code> and <code>sl</code>, driven as they are. The abstraction exists so they are
 <strong>interchangeable and removable</strong> (ADR-0011, ADR-0013) — so Sapling can stand where Git stands, and a
 user who wants only one can remove the other along with its entire installation and system integration — not so that either
@@ -279,7 +279,7 @@ discarded state into the CAS first, or refuse.</p>
         </nav>
 
         <footer class="footer">
-          <span>Omnis</span>
+          <span>Omnix</span>
         </footer>
       </main>
 

@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Source transcript · Omnis</title>
+    <title>Source transcript · Omnix</title>
     <meta name="description" content="Universal developer workspace and local-first personal data OS - one engine, many profiles.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
 
         <a class="header__brand" href="../..">
           <span class="header__mark" aria-hidden="true"></span>
-          <span class="header__name">Omnis</span>
+          <span class="header__name">Omnix</span>
         </a>
 
         <div class="header__search">
@@ -140,7 +140,7 @@
     </li>
     <li class="nav__item">
       <a class="nav__link"
-         href="../../architecture/decisions/0011-omnis-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnis is a kernel: bind existing services rather than reimplement them</a>
+         href="../../architecture/decisions/0011-omnix-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnix is a kernel: bind existing services rather than reimplement them</a>
     </li>
     <li class="nav__item">
       <a class="nav__link"
@@ -240,7 +240,7 @@
           <h1 id="source-transcript-scoping-conversation">Source transcript — scoping conversation<a class="headerlink" href="#source-transcript-scoping-conversation" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p><strong>Status: SOURCE MATERIAL. Superseded as a specification.</strong></p>
-<p>This is the captured record of the scoping conversation that produced Omnis. It is kept for
+<p>This is the captured record of the scoping conversation that produced Omnix. It is kept for
 provenance and for the detail it carries, not as a specification: <code>ARCHITECTURE.md</code> is now the
 single normative document, and everything here that survived review has been absorbed into it or
 explicitly rejected in a decision record.</p>
@@ -253,7 +253,7 @@ no gaps. Capture method in <a href="../vision_capture/">vision_capture.md</a>.</
 <hr />
 <h2 id="table-of-contents">Table of contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
 <ol>
-<li><a href="#1-what-omnis-is">What Omnis is</a></li>
+<li><a href="#1-what-omnix-is">What Omnix is</a></li>
 <li><a href="#2-brand-parity-and-dynamic-appearance">Brand parity and dynamic appearance</a></li>
 <li><a href="#3-native-window-styling-the-five-pillars">Native window styling: the five pillars</a></li>
 <li><a href="#4-typography-density-audio-icon-state-machines">Typography, density, audio, icon state machines</a></li>
@@ -266,12 +266,12 @@ no gaps. Capture method in <a href="../vision_capture/">vision_capture.md</a>.</
 <li><a href="#11-review-notes">Review notes</a></li>
 </ol>
 <hr />
-<h2 id="1-what-omnis-is">1. What Omnis is<a class="headerlink" href="#1-what-omnis-is" title="Permanent link">&para;</a></h2>
+<h2 id="1-what-omnix-is">1. What Omnix is<a class="headerlink" href="#1-what-omnix-is" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Universal Developer Workspace &amp; Local-First Personal Data Operating System.</p>
 </blockquote>
 <p>Two ideas run through the whole conversation, and they are not independent.</p>
-<p><strong>The substrate.</strong> Omnis is a headless daemon that owns everything durable — version control,
+<p><strong>The substrate.</strong> Omnix is a headless daemon that owns everything durable — version control,
 packages, tasks, terminals, containers, language servers, debuggers, an embedded browser, an agent
 runtime, a secrets vault, content-addressed storage, and a sync mesh — with thin, interchangeable
 surfaces attached over IPC. The surfaces are a Tauri desktop app, a CLI, and any external harness
@@ -299,7 +299,7 @@ capability matrix, never a fork.</p>
 exist independently of any brand. If a look needs code specific to that look, the engine is wrong.</p>
 <hr />
 <h2 id="2-brand-parity-and-dynamic-appearance">2. Brand parity and dynamic appearance<a class="headerlink" href="#2-brand-parity-and-dynamic-appearance" title="Permanent link">&para;</a></h2>
-<p>Namespace: <code>omnis.appearance</code>. Called the <strong>Dynamic Brand Skinning Engine</strong>.</p>
+<p>Namespace: <code>omnix.appearance</code>. Called the <strong>Dynamic Brand Skinning Engine</strong>.</p>
 <h3 id="21-dynamic-app-icon-and-window-chrome-engine">2.1 Dynamic app icon and window chrome engine<a class="headerlink" href="#21-dynamic-app-icon-and-window-chrome-engine" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Tauri native dock/tray integration</strong> — the app icon (Dock on macOS, Taskbar/Tray on
@@ -469,7 +469,7 @@ right-aligned.</p>
 <p>The pivotal turn. The model's own framing:</p>
 <blockquote>
 <p>If "still not enough" means skinning layout tokens and window frames isn't capturing the soul of
-these applications, it is because a brand theme in Omnis must fundamentally alter how the
+these applications, it is because a brand theme in Omnix must fundamentally alter how the
 operating system behaves, not just how it looks.</p>
 </blockquote>
 <p><strong>1. Brand-specific interaction paradigms.</strong></p>
@@ -493,7 +493,7 @@ Anthropic's system prompt architecture and tone; <code>brand-deepseek</code> tun
 math-optimized prompts; <code>brand-github</code> biases agents toward PRs, conventional commits, and CI
 compliance.</p>
 <p><strong>4. Extension API emulation layers.</strong> When a <code>vscode:full</code> extension runs inside <code>brand-claude</code>,
-Omnis injects compatibility shims mapping expected VS Code UI elements into native chat artifacts or
+Omnix injects compatibility shims mapping expected VS Code UI elements into native chat artifacts or
 sidebar panels without uncaught exceptions.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">SystemPersonalityPackage</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
@@ -522,15 +522,15 @@ sidebar panels without uncaught exceptions.</p>
 <hr />
 <h2 id="6-the-terminal-native-ui-engine">6. The terminal-native UI engine<a class="headerlink" href="#6-the-terminal-native-ui-engine" title="Permanent link">&para;</a></h2>
 <p><code>brand-zed</code> is not a skin. It is a <strong>second renderer</strong>.</p>
-<h3 id="61-the-cell-grid-ui-engine-omnis-term-ui">6.1 The cell-grid UI engine (<code>omnis-term-ui</code>)<a class="headerlink" href="#61-the-cell-grid-ui-engine-omnis-term-ui" title="Permanent link">&para;</a></h3>
-<p>Omnis bypasses HTML DOM layout trees and CSS flexbox for its chrome, replacing them with a
+<h3 id="61-the-cell-grid-ui-engine-omnix-term-ui">6.1 The cell-grid UI engine (<code>omnix-term-ui</code>)<a class="headerlink" href="#61-the-cell-grid-ui-engine-omnix-term-ui" title="Permanent link">&para;</a></h3>
+<p>Omnix bypasses HTML DOM layout trees and CSS flexbox for its chrome, replacing them with a
 <strong>GPU-accelerated Cell Matrix Buffer</strong>. Every UI element — sidebar borders, status bars, tab headers,
 buttons, input prompts — is a styled terminal cell rendered via WebGL/WebGPU inside the Tauri window.</p>
 <ul>
 <li><strong>Unified cell buffer</strong> — the whole window shares one text-grid coordinate space.</li>
 <li><strong>Zero DOM overhead</strong> — components are data structures mapped to cells holding Unicode glyphs,
   24-bit RGB foreground/background, and SGR attribute flags (bold, dim, italic, underline, reverse).</li>
-<li><strong>GPU blitting</strong> — an optimized WebGPU/WebGL shader pipeline inside <code>omnisd</code>, targeting
+<li><strong>GPU blitting</strong> — an optimized WebGPU/WebGL shader pipeline inside <code>omnixd</code>, targeting
   sub-millisecond full-screen redraws and zero layout thrashing.</li>
 </ul>
 <h3 id="62-interaction-paradigms">6.2 Interaction paradigms<a class="headerlink" href="#62-interaction-paradigms" title="Permanent link">&para;</a></h3>
@@ -548,7 +548,7 @@ buttons, input prompts — is a styled terminal cell rendered via WebGL/WebGPU i
 <thead>
 <tr>
 <th>HTML / DOM engine</th>
-<th>Cell-grid terminal engine (<code>omnis-term-ui</code>)</th>
+<th>Cell-grid terminal engine (<code>omnix-term-ui</code>)</th>
 </tr>
 </thead>
 <tbody>
@@ -620,8 +620,8 @@ strict grid lines.</p>
 <p><strong>Zero bloat</strong>: every target style is a native configuration state of the core engine.</p>
 <hr />
 <h2 id="8-terminal-grid-web-browser">8. Terminal-grid web browser<a class="headerlink" href="#8-terminal-grid-web-browser" title="Permanent link">&para;</a></h2>
-<p><code>omnis-term-browser</code> is a <strong>dual-mode rendering bridge</strong>. Under the terminal renderer the embedded
-Chromium engine (<code>omnis-browser</code>) does not display DOM nodes; it renders pages through two
+<p><code>omnix-term-browser</code> is a <strong>dual-mode rendering bridge</strong>. Under the terminal renderer the embedded
+Chromium engine (<code>omnix-browser</code>) does not display DOM nodes; it renders pages through two
 conversion pipelines fed by headless CDP.</p>
 <p><strong>Semantic text mode (AXTree → cells).</strong> For documentation, repositories, blogs, and text-heavy
 pages: DOM overhead is stripped into a semantic text tree; headings, paragraphs, and lists render as
@@ -629,7 +629,7 @@ monospaced blocks with ANSI colour weights. Links and inputs get interactive cel
 tabbing or clicking highlights the cell range and triggers CDP navigation. Near-zero GPU memory,
 instant keyboard scrolling.</p>
 <p><strong>Pixel blit mode (Sixel / Unicode Braille).</strong> For rich apps, charts, embedded editors, or video:
-Chromium screencasts the viewport over CDP at 30/60 FPS, and <code>omnis-term-browser</code> downsamples pixel
+Chromium screencasts the viewport over CDP at 30/60 FPS, and <code>omnix-term-browser</code> downsamples pixel
 buffers into TrueColor ANSI Sixel graphics or high-density Braille matrices (<code>⣿⣾⣽⣻⢿⡿⣟⣯⣷</code>).</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>"browser.terminalRenderer.mode": "auto",   // 'semantic-text' | 'pixel-sixel' | 'hybrid'
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>"browser.terminalRenderer.fps": 30
@@ -642,25 +642,25 @@ renderers with no bolted-on extensions.</p>
 <p>The compilation the user pushed for three times. This is the substrate the appearance layer sits on.</p>
 <h3 id="91-process-topology-and-dual-socket-ipc">9.1 Process topology and dual-socket IPC<a class="headerlink" href="#91-process-topology-and-dual-socket-ipc" title="Permanent link">&para;</a></h3>
 <blockquote>
-<p>Omnis isolates the persistent background daemon, GUI presentation layer, language servers, browser
+<p>Omnix isolates the persistent background daemon, GUI presentation layer, language servers, browser
 runtimes, and extension execution hosts into strictly decoupled processes. This guarantees zero
 process termination on UI reloads, unblocked I/O streaming, and complete harness agnosticism.</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>┌──────────────────────────────────────────────────────────────────────────────┐
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>│                              SURFACE LAYER                                   │
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>│  ┌────────────────────────┐ ┌──────────────────────┐ ┌────────────────────┐  │
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>│  │ Omnis GUI (Tauri)      │ │ Omnis CLI (`omnis`)  │ │ Any External       │  │
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>│  │ Omnix GUI (Tauri)      │ │ Omnix CLI (`omnix`)  │ │ Any External       │  │
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>│  │ DOM-Flex / Cell-Grid   │ │ Shell orchestration  │ │ Harness: Claude    │  │
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>│  │ Cordis Microkernel Root│ │ Pretty &amp; `--json`    │ │ Code, Codex, Aider │  │
 <a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>│  └───────────┬────────────┘ └──────────┬───────────┘ └─────────┬──────────┘  │
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>└──────────────┼─────────────────────────┼───────────────────────┼─────────────┘
 <a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>               │   DUAL IPC TRANSPORT                            │ MCP / Stdio
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>               │   • Control: JSON-RPC 2.0 (omnis-control.sock)  ▼
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>               │   • Data: framed binary  (omnis-data.sock)  ┌──────────────────┐
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>               │                                            │ `@omnis/agent`   │
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>               │   • Control: JSON-RPC 2.0 (omnix-control.sock)  ▼
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>               │   • Data: framed binary  (omnix-data.sock)  ┌──────────────────┐
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>               │                                            │ `@omnix/agent`   │
 <a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>               ▼                                            │ SDK &amp; MCP bridge │
 <a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>┌────────────────────────────────────────────────────────┐  └──────────────────┘
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>│ HEADLESS DAEMON (`omnisd`)                             │
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>│ HEADLESS DAEMON (`omnixd`)                             │
 <a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>│           OMNIS SUBSTRATE BUS (OSB ROUTER)             │
 <a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>│ ┌──────────────────┬──────────────────┬──────────────┐ │
 <a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>│ │ Core Engine/Sync │ Background       │ Storage &amp;    │ │
@@ -673,16 +673,16 @@ process termination on UI reloads, unblocked I/O streaming, and complete harness
 <a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>│ │                  │                  │ Inotify      │ │
 <a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>│ └──────────────────┴──────────────────┴──────────────┘ │
 <a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>│ Modular subsystems (conditionally initialized):        │
-<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>│  LSP Hub · DAP (`omnis-dap`) · P2P WebRTC Mesh         │
-<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>│  Browser (`omnis-browser` + `omnis-term-browser`)      │
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>│  LSP Hub · DAP (`omnix-dap`) · P2P WebRTC Mesh         │
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>│  Browser (`omnix-browser` + `omnix-term-browser`)      │
 <a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>│  SSH/GPG Agent · Task DAG Engine · Audit Stream        │
 <a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>│  Context Harvester · VCS &amp; Forge · Cloud VFS · Chat    │
 <a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>└────────────────────────────────────────────────────────┘
 </code></pre></div>
-<p><strong>Control socket</strong> (<code>omnis-control.sock</code> / <code>\\.\pipe\omnis-control</code>) — strict JSON-RPC 2.0 framing
+<p><strong>Control socket</strong> (<code>omnix-control.sock</code> / <code>\\.\pipe\omnix-control</code>) — strict JSON-RPC 2.0 framing
 carrying capability checks, layout persistence, escrow ticket transitions, extension registrations,
 database queries, and context shelf modifications.</p>
-<p><strong>Data socket</strong> (<code>omnis-data.sock</code> / <code>\\.\pipe\omnis-data</code>) — high-throughput binary multiplexer with
+<p><strong>Data socket</strong> (<code>omnix-data.sock</code> / <code>\\.\pipe\omnix-data</code>) — high-throughput binary multiplexer with
 a uniform 9-byte header:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[StreamID: u32][Opcode: u8][PayloadLength: u32]
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
@@ -693,24 +693,24 @@ a uniform 9-byte header:</p>
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>0x05 CDP_BINARY   CDP screencast frames and Sixel terminal rasters
 </code></pre></div>
 <h3 id="92-workspace-layout">9.2 Workspace layout<a class="headerlink" href="#92-workspace-layout" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>omnis/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>omnix/
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>├── Cargo.toml                  # virtual workspace root
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>├── crates/
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>│   ├── omnis-core/             # shared RPC models, schemas, OSB contracts
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>│   ├── omnisd/                 # headless daemon binary
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>│   ├── omnix-core/             # shared RPC models, schemas, OSB contracts
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>│   ├── omnixd/                 # headless daemon binary
 <a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>│   │   └── src/
 <a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>│   │       ├── main.rs         # conditional subsystem bootloader
 <a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>│   │       └── subsystems/     # modular domain implementations
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>│   ├── omnis-cli/              # `omnis` executable
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>│   ├── omnis-gui/              # Tauri desktop host &amp; window manager
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>│   ├── omnis-agent/            # agent engine &amp; MCP server binary
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>│   ├── omnis-lsp/              # LSP multiplexer hub
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>│   ├── omnis-dap/              # Debug Adapter Protocol implementation
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>│   ├── omnis-browser/          # Chromium supervisor, CDP bridge, adblock
-<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>│   └── omnis-cas/              # FastCDC chunking, convergent encryption, VFS
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>│   ├── omnix-cli/              # `omnix` executable
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>│   ├── omnix-gui/              # Tauri desktop host &amp; window manager
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>│   ├── omnix-agent/            # agent engine &amp; MCP server binary
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>│   ├── omnix-lsp/              # LSP multiplexer hub
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>│   ├── omnix-dap/              # Debug Adapter Protocol implementation
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>│   ├── omnix-browser/          # Chromium supervisor, CDP bridge, adblock
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>│   └── omnix-cas/              # FastCDC chunking, convergent encryption, VFS
 <a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>└── packages/
 <a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>    ├── core/                   # Cordis microkernel, context defs, dsh-compat
-<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>    ├── agent-sdk/              # npm package `@omnis/agent`
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>    ├── agent-sdk/              # npm package `@omnix/agent`
 <a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>    ├── exthost-node/           # isolated Node.js runtime for VS Code extensions
 <a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>    └── frontend/               # webview shell (Dockview, shadcn/ui)
 </code></pre></div>
@@ -719,8 +719,8 @@ a uniform 9-byte header:</p>
 <table>
 <thead>
 <tr>
-<th><strong>Packages</strong> (<code>omnis pkg</code> / <code>ctx.packages</code>)</th>
-<th><strong>Extensions</strong> (<code>omnis ext</code> / <code>ctx.extensions</code>)</th>
+<th><strong>Packages</strong> (<code>omnix pkg</code> / <code>ctx.packages</code>)</th>
+<th><strong>Extensions</strong> (<code>omnix ext</code> / <code>ctx.extensions</code>)</th>
 </tr>
 </thead>
 <tbody>
@@ -730,7 +730,7 @@ a uniform 9-byte header:</p>
 </tr>
 <tr>
 <td>Target: the codebase repo or host OS</td>
-<td>Target: Omnis client, Monaco, Cordis, agents</td>
+<td>Target: Omnix client, Monaco, Cordis, agents</td>
 </tr>
 <tr>
 <td>Code deps: Bun, pnpm, npm, Cargo, uv, Poetry, Go modules, Deno</td>
@@ -755,10 +755,10 @@ a uniform 9-byte header:</p>
 <li><strong>Zero-knowledge vault</strong> — master key derived via Argon2id (64 MB, 3 iterations, 4 parallelism).
   The KEK is held in a <code>Zeroizing&lt;[u8; 32]&gt;</code> buffer with <code>mlock()</code> protection. Device secrets bridge
   to OS keychains (Apple Keychain, DPAPI, Secret Service).</li>
-<li><strong>Secure process injection</strong> — <code>omnisd</code> intercepts child spawns (<code>omnis.terminal</code>,
-  <code>omnis.pkg.exec</code>) and injects decrypted <code>.env</code> secrets directly into the child's memory map,
+<li><strong>Secure process injection</strong> — <code>omnixd</code> intercepts child spawns (<code>omnix.terminal</code>,
+  <code>omnix.pkg.exec</code>) and injects decrypted <code>.env</code> secrets directly into the child's memory map,
   without writing plaintext credentials to disk <em>or into agent context windows</em>.</li>
-<li><strong>Integrated SSH/GPG agent</strong> (<code>omnis-ssh-agent</code>) — a native Unix socket (<code>~/.omnis/ssh.sock</code>)
+<li><strong>Integrated SSH/GPG agent</strong> (<code>omnix-ssh-agent</code>) — a native Unix socket (<code>~/.omnix/ssh.sock</code>)
   managed by the daemon, decrypting private keys from the vault on demand to authenticate git pushes,
   forge operations, and SSH tunnels.</li>
 </ul>
@@ -767,12 +767,12 @@ a uniform 9-byte header:</p>
 <li><strong>Agent behavioural audit stream</strong> — immutable append-only log of every tool call, file
   modification, SQL query, and network request an autonomous agent executes, with a one-click sandbox
   execution killswitch.</li>
-<li><strong>Unified task &amp; build DAG engine</strong> (<code>omnis task</code>) — parses <code>package.json</code>, <code>Cargo.toml</code>,
+<li><strong>Unified task &amp; build DAG engine</strong> (<code>omnix task</code>) — parses <code>package.json</code>, <code>Cargo.toml</code>,
   <code>Makefile</code>, <code>Taskfile.yaml</code> into a cross-repository dependency graph, using CAS timestamps to skip
   unchanged targets and parallelize builds.</li>
-<li><strong>Universal context fabric</strong> (<code>omnis-context</code>) — harvests normal-form <code>ContextFragment</code> envelopes
+<li><strong>Universal context fabric</strong> (<code>omnix-context</code>) — harvests normal-form <code>ContextFragment</code> envelopes
   from code selections, terminal buffers, browser pages, and Docker logs; pins them to a persistent
-  sidebar shelf; exposes them as <code>omnis://context/&lt;id&gt;</code> URIs.</li>
+  sidebar shelf; exposes them as <code>omnix://context/&lt;id&gt;</code> URIs.</li>
 <li><strong>Universal VCS &amp; stacked PRs</strong> (<code>ovcs</code>) — dual Git/Sapling engine with an atomic operation log
   (<code>vcs_op_log</code>), automated <code>absorb</code>, a 3-way AST merge editor, and stacked PR management across
   GitHub, GitLab, and Forgejo.</li>
@@ -864,7 +864,7 @@ the daemon's "Serialized PGlite Mailbox"):</p>
 </code></pre></div>
 <h3 id="97-master-configuration-reference">9.7 Master configuration reference<a class="headerlink" href="#97-master-configuration-reference" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>{
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  "$schema": "https://omnis.dev/schemas/settings.v1.json",
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  "$schema": "https://omnix.dev/schemas/settings.v1.json",
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  "daemon.autoStartOnLogin": true,
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>  "daemon.controlSocketPath": "default",
 <a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>  "daemon.dataSocketPath": "default",
@@ -901,17 +901,17 @@ settings, so the daemon a user runs contains only what they enabled.</p>
 several have acknowledged defects (the task DAG sort returns the unsorted input; the cell grid writes
 characters without touching colour). Treat them as shape, not as code to copy.</p>
 <ul>
-<li><code>crates/omnis-core/src/bus.rs</code> — <code>Subsystem</code> async trait (<code>name</code>/<code>initialize</code>/<code>shutdown</code>) and a
+<li><code>crates/omnix-core/src/bus.rs</code> — <code>Subsystem</code> async trait (<code>name</code>/<code>initialize</code>/<code>shutdown</code>) and a
   <code>SubstrateBus</code> over a <code>tokio::sync::broadcast</code> channel carrying <code>BusMessage { id, topic, payload }</code>.</li>
-<li><code>crates/omnisd/src/ipc.rs</code> — <code>UnixListener</code> control socket, per-connection <code>tokio::spawn</code>, JSON-RPC
+<li><code>crates/omnixd/src/ipc.rs</code> — <code>UnixListener</code> control socket, per-connection <code>tokio::spawn</code>, JSON-RPC
   2.0 request/response.</li>
-<li><code>crates/omnisd/src/security/process.rs</code> — <code>SecureProcessSpawner::spawn_with_vault_env</code>, injecting
+<li><code>crates/omnixd/src/security/process.rs</code> — <code>SecureProcessSpawner::spawn_with_vault_env</code>, injecting
   <code>Zeroizing&lt;String&gt;</code> secrets into the child environment only.</li>
-<li><code>crates/omnis-cas/src/chunker.rs</code> — <code>ConvergentFastCDC</code> with min/avg/max chunk sizes and a
+<li><code>crates/omnix-cas/src/chunker.rs</code> — <code>ConvergentFastCDC</code> with min/avg/max chunk sizes and a
   BLAKE3 keyed convergent key derivation.</li>
-<li><code>crates/omnis-browser/src/term_ui.rs</code> — <code>Cell { character, fg_color, bg_color, flags }</code> and
+<li><code>crates/omnix-browser/src/term_ui.rs</code> — <code>Cell { character, fg_color, bg_color, flags }</code> and
   <code>CellGridBuffer { cols, rows, grid: Vec&lt;Cell&gt; }</code>.</li>
-<li><code>crates/omnisd/src/tasks/dag.rs</code> — Kahn topological sort over <code>TaskNode { name, dependencies,
+<li><code>crates/omnixd/src/tasks/dag.rs</code> — Kahn topological sort over <code>TaskNode { name, dependencies,
   input_hash }</code> with cycle detection.</li>
 </ul>
 <hr />
@@ -930,8 +930,8 @@ be a mistake. Each is a decision to make deliberately, not a defect to fix silen
    than effects that would exist in one renderer and not the other.</li>
 </ol>
 <p>The transcript also conflates two different things under <code>brand-zed</code>: a terminal <em>look</em>, and
-   actually <em>running in a terminal</em>. Omnis separates them. <code>cell-grid</code> is a presentation mode the
-   GPU compositor draws in a desktop window; <code>omnis-tui</code> is a genuine second renderer backend that
+   actually <em>running in a terminal</em>. Omnix separates them. <code>cell-grid</code> is a presentation mode the
+   GPU compositor draws in a desktop window; <code>omnix-tui</code> is a genuine second renderer backend that
    emits ANSI to a real terminal, works over SSH, and needs no GPU. Both consume the same scene
    tree, which is what makes feature parity between them a contract rather than a hope
    (<code>ARCHITECTURE.md</code> §4.7).
@@ -968,7 +968,7 @@ be a mistake. Each is a decision to make deliberately, not a defect to fix silen
         </nav>
 
         <footer class="footer">
-          <span>Omnis</span>
+          <span>Omnix</span>
         </footer>
       </main>
 
@@ -977,7 +977,7 @@ be a mistake. Each is a decision to make deliberately, not a defect to fix silen
         <ul class="toc__list">
           <li><a href="#table-of-contents">Table of contents</a>
           </li>
-          <li><a href="#1-what-omnis-is">1. What Omnis is</a>
+          <li><a href="#1-what-omnix-is">1. What Omnix is</a>
           </li>
           <li><a href="#2-brand-parity-and-dynamic-appearance">2. Brand parity and dynamic appearance</a>
             <ul>
@@ -999,7 +999,7 @@ be a mistake. Each is a decision to make deliberately, not a defect to fix silen
           </li>
           <li><a href="#6-the-terminal-native-ui-engine">6. The terminal-native UI engine</a>
             <ul>
-              <li><a href="#61-the-cell-grid-ui-engine-omnis-term-ui">6.1 The cell-grid UI engine (omnis-term-ui)</a></li>
+              <li><a href="#61-the-cell-grid-ui-engine-omnix-term-ui">6.1 The cell-grid UI engine (omnix-term-ui)</a></li>
               <li><a href="#62-interaction-paradigms">6.2 Interaction paradigms</a></li>
               <li><a href="#63-the-native-rendering-switchboard">6.3 The native rendering switchboard</a></li>
             </ul>

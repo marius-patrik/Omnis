@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ADR-0018 — Services are backends of domain subsystems · Omnis</title>
+    <title>ADR-0018 — Services are backends of domain subsystems · Omnix</title>
     <meta name="description" content="Universal developer workspace and local-first personal data OS - one engine, many profiles.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
 
         <a class="header__brand" href="../../..">
           <span class="header__mark" aria-hidden="true"></span>
-          <span class="header__name">Omnis</span>
+          <span class="header__name">Omnix</span>
         </a>
 
         <div class="header__search">
@@ -140,7 +140,7 @@
     </li>
     <li class="nav__item">
       <a class="nav__link"
-         href="../0011-omnis-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnis is a kernel: bind existing services rather than reimplement them</a>
+         href="../0011-omnix-is-a-kernel-bind-existing-services-rather-than-reimplement-them/">ADR-0011 — Omnix is a kernel: bind existing services rather than reimplement them</a>
     </li>
     <li class="nav__item">
       <a class="nav__link"
@@ -245,7 +245,7 @@
 <h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
 <p>A power user's day runs through services they do not own: ChatGPT, DeepSeek, Google, YouTube,
 Netflix, and a hundred others. Each has its own interface, its own conventions, and no relationship
-to any of the others. Omnis should be able to present them through interfaces we control, and to
+to any of the others. Omnix should be able to present them through interfaces we control, and to
 present <em>several</em> of them through <strong>one</strong> interface — a single streaming view over YouTube, Netflix,
 and whatever else, the way a single VCS view already spans Git and Sapling.</p>
 <p>The temptation is to treat this as a new subsystem class with new machinery. It is not. Almost all of
@@ -284,7 +284,7 @@ a third.</p>
 </table>
 <p>Only the third is new. Presentation and action are the scene tree and the bus, unchanged.</p>
 <h3 id="the-universal-translator-already-exists">The universal translator already exists<a class="headerlink" href="#the-universal-translator-already-exists" title="Permanent link">&para;</a></h3>
-<p><code>omnis-web-source</code>'s semantic mode — AXTree to layout to primitives — <em>is</em> the "show anything"
+<p><code>omnix-web-source</code>'s semantic mode — AXTree to layout to primitives — <em>is</em> the "show anything"
 translator. Any service with a web interface is renderable today, as real primitives rather than a
 rectangle of pixels: keyboard-navigable, themeable, and legible to an agent. No new machinery.</p>
 <h3 id="progressive-with-no-cliff">Progressive, with no cliff<a class="headerlink" href="#progressive-with-no-cliff" title="Permanent link">&para;</a></h3>
@@ -365,7 +365,7 @@ an interface full of controls that silently fail.</p>
         </nav>
 
         <footer class="footer">
-          <span>Omnis</span>
+          <span>Omnix</span>
         </footer>
       </main>
 
