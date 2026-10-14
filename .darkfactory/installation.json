@@ -4,12 +4,12 @@
   "slug": "marius-patrik/Omnis",
   "sourceBranch": "main",
   "release": {
-    "tag": "v0.291.5",
-    "sha": "d6644d74ae578a73aa2cba988a4f16b6a6e98753",
-    "digest": "bd599d7e9bfd0c6f61655275b2aedcbecacb1a269097200fbbecf319da4384ea"
+    "tag": "v0.291.6",
+    "sha": "368eb9d75d5d828e7ac17fe590d4dc17b028cebc",
+    "digest": "9b601ce17446348fbbac74597067855be7c05f004670cd14d9d77dd40ab545e0"
   },
   "fileHashes": {
-    "repo.dfconfig": "101a137d7955f1dc3a3e29fb0aa6bc603782d8c9df8d081d0ac6f8177e561d44",
-    ".github/workflows/darkfactory-control.yml": "899911f1bb7ef38d03deeb9d368adb760307468c7e455d63354bd2185475efe5"
+    "repo.dfconfig": "f71912c62b4d47da93f6f37bcf62af09e4ac2b7bc84b507b28cefd40177050f1",
+    ".github/workflows/darkfactory-control.yml": "5576e69d4c28aea534989a0b76b06727af4e8df8a1f44405bf0668037771fa92"
   }
 }
